@@ -26,7 +26,7 @@ function Comments({modalOpacity}) {
     //   clearInterval(commentInterval);
     // }
   }, [modalOpacity, currentPostData.boardNum]);
-
+// 
   return (
     <Wrapper>
       {/* 좋아요 댓글 갯수 출력하는 코드 */}
