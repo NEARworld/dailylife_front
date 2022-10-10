@@ -20,7 +20,8 @@ function ProfileModifyForm({ textArr }) {
   const [fileImage, setFileImage] = useState<string>('');
 
   function activator() {
-    const firstErrorMsg = validate(inputName, 'username').username !== undefined;
+    const firstErrorMsg =
+      validate(inputName, 'username').username !== undefined;
     const secondErrorMsg = validate(inputId, 'userId').userId !== undefined;
 
     if (firstErrorMsg || secondErrorMsg) return false;
@@ -83,21 +84,19 @@ function ProfileModifyForm({ textArr }) {
               <div className="row">
                 <p className="profile-modify-input">프로필 이름</p>
                 <MyInfoInput
-                  formType='username'
+                  formType="username"
                   setState={setInputName}
-                  description='
+                  description="
                     최대 12글자(공백포함)까지 이름으로 등록 가능합니다.
-                  '
+                  "
                 />
               </div>
               <div className="row">
                 <p className="profile-modify-input">프로필 아이디</p>
                 <MyInfoInput
-                  formType='userId'
+                  formType="userId"
                   setState={setInputId}
-                  description=
-                  '사람들에게 회원님의 계정을 찾을 수 있도록 변경해주세요. '
-
+                  description="사람들에게 회원님의 계정을 찾을 수 있도록 변경해주세요. "
                 />
               </div>
             </div>
@@ -106,15 +105,15 @@ function ProfileModifyForm({ textArr }) {
             <MyInfoButton
               width="69px"
               height="28px"
-              text='수정 완료'
+              text="수정 완료"
               isActive={activator()}
-              fontSize='15px'
-            // requestPath='api/users/modifyUser'
+              fontSize="13px"
+              // requestPath='api/users/modifyUser'
             />
           </div>
         </div>
       </div>
-    </form >
+    </form>
   );
 }
 

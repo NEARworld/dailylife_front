@@ -2,7 +2,10 @@ import { MouseEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import likeApi from 'apis/likeApi';
+import parseComments from 'hooks/parseComment';
+import { updateReplyList } from 'reducers/comment';
 import { selectedPostActions } from 'reducers/selectedPostData';
+import { useAppSelector } from 'store/hooks';
 
 function useCardItem({
   heartState,
@@ -14,11 +17,19 @@ function useCardItem({
 }) {
   const [like, setLike] = useState<boolean>(heartState);
   const dispatch = useDispatch();
+  const { fetchComments } = parseComments();
+  const currentPostData = useAppSelector((state) => state.selectedPostData);
   const openModal = () => {
     setModalOpacity(1);
   };
   const handleClick = () => {
     openModal();
+
+    fetchComments(currentPostData.boardNum)
+      .then((updatedTimeList) => {
+        dispatch(updateReplyList(updatedTimeList));
+      })
+      .catch((err) => err);
     dispatch(
       selectedPostActions.updateData({
         boardNum,

@@ -15,9 +15,12 @@ function AccountModifyForm({ textArr }) {
   const [inputConfirmPassword, setInputConfirmPassword] = useState('');
 
   function activator() {
-    const firstErrorMsg = validate(inputCurrentPassword, 'password').password !== undefined;
-    const secondErrorMsg = validate(inputNewPassword, 'password').password !== undefined;
-    const thirdErrorMsg = validate(inputConfirmPassword, 'password').password !== undefined;
+    const firstErrorMsg =
+      validate(inputCurrentPassword, 'password').password !== undefined;
+    const secondErrorMsg =
+      validate(inputNewPassword, 'password').password !== undefined;
+    const thirdErrorMsg =
+      validate(inputConfirmPassword, 'password').password !== undefined;
 
     if (firstErrorMsg || secondErrorMsg || thirdErrorMsg) return false;
     return true;
@@ -33,24 +36,24 @@ function AccountModifyForm({ textArr }) {
         <div className="row">
           <p className="account-modify-input">현재 비밀번호</p>
           <MyInfoInput
-            type='password'
-            formType='password'
+            type="password"
+            formType="password"
             setState={setInputCurrentPassword}
           />
         </div>
         <div className="row">
           <p className="account-modify-input">새 비밀번호</p>
           <MyInfoInput
-            type='password'
-            formType='password'
+            type="password"
+            formType="password"
             setState={setInputNewPassword}
           />
         </div>
         <div className="row">
           <p className="account-modify-input">새 비밀번호 확인</p>
           <MyInfoInput
-            type='password'
-            formType='password'
+            type="password"
+            formType="password"
             setState={setInputConfirmPassword}
           />
         </div>
@@ -58,9 +61,9 @@ function AccountModifyForm({ textArr }) {
           <MyInfoButton
             width="85px"
             height="28px"
-            text='비밀번호 변경'
+            text="비밀번호 변경"
             isActive={activator()}
-            fontSize='15px'
+            fontSize="13px"
           />
         </div>
       </div>

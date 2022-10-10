@@ -11,8 +11,8 @@ function UserInfo() {
       <UserImage>
         <img src="" alt="userImage" />
       </UserImage>
-      <UserName>홍길동</UserName>
-      <UserId>@dailylife_00</UserId>
+      <UserName>dailyLife1</UserName>
+      <UserId>@dailyLife1</UserId>
       <FollowInfo>
         <Followers>팔로워 0명</Followers>
         <Followings>팔로잉 0명</Followings>

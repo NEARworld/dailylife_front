@@ -124,4 +124,10 @@ const getAccessToken = (): string => {
   return 'No Access Token';
 };
 
-export { methodFormat, validate, getCommentDate, getAccessToken };
+const getPublicURL = (): string => {
+  const publicURL = process.env.PUBLIC_URL;
+  if (publicURL !== undefined) return publicURL;
+  return '';
+};
+
+export { methodFormat, validate, getCommentDate, getAccessToken, getPublicURL };

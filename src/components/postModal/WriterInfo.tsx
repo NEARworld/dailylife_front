@@ -17,8 +17,8 @@ function WriterInfo({ setModalOpacity }) {
   return (
     <div className="writer-info-container">
       <WriterInfoWrapper>
-        <AvatarIcon image='' />
-        <Username>작성자닉네임</Username>
+        <AvatarIcon image="" />
+        <Username>dailyLife1</Username>
         <Follow>팔로우</Follow>
       </WriterInfoWrapper>
       <CloseContainer>
@@ -36,7 +36,8 @@ function WriterInfo({ setModalOpacity }) {
                   type="button"
                   className="kebab-list-delete-button"
                   onClick={() => {
-                    postApi.deleteBoardData(selectedPostData.boardNum)
+                    postApi
+                      .deleteBoardData(selectedPostData.boardNum)
                       .then((res) => console.log(res))
                       .catch((err) => console.log(err));
                     alert('게시글이 성공적으로 삭제되었습니다.');
@@ -84,9 +85,9 @@ const CloseContainer = styled.div`
       right: -3vh;
       top: -10vh;
     }
-    
     & > ${ModalClose} > svg > path {
-      stroke: #F4F4F4;
+      stroke: #f4f4f4;
+
     }
   }
   @media ${devices.laptopL} {
@@ -94,7 +95,7 @@ const CloseContainer = styled.div`
       right: -7vh;
     }
   }
-`
+`;
 
 const KebabMenuContainer = styled.div`
   position: relative;
@@ -167,7 +168,7 @@ const Follow = styled.button`
   font-size: 16px;
   line-height: 23px;
 
-  background-color: #F0F0F0;
+  background-color: #f0f0f0;
 
   @media ${devices.mobileS} {
     font-size: small;

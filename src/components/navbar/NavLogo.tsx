@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 
+import { getPublicURL } from 'common/utils';
 import { postActions } from 'reducers/post';
 import { updateSearchedKeyword } from 'reducers/searchResult';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
@@ -18,7 +19,7 @@ function NavLogo() {
         type="button"
       >
         <Link to="/">
-          <img src="/assets/logo.png" alt="mainLogo" />
+          <img src={`${getPublicURL()}/assets/logo.png`} alt="mainLogo" />
         </Link>
       </button>
     </div>

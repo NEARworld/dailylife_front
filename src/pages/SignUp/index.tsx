@@ -147,7 +147,7 @@ function SignUp() {
               height="50px"
               fontSize="17px"
               isActive={activator()}
-              width="100px"
+              width="100%"
             />
           </div>
           {/* <button type="submit" className="register-form-submit-btn">
