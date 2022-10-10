@@ -1,4 +1,4 @@
-import { methodFormat } from '../common/utils';
+import { getAccessToken, methodFormat } from '../common/utils';
 import client from './client';
 
 const PATH = 'api/board';
@@ -37,10 +37,10 @@ const postApi = {
   }),
 
   deleteBoardData: methodFormat(
-    async (boardNum: number, accessToken: string) => {
+    async (boardNum: number) => {
       const response = await client.delete(`/${PATH}/delete/${boardNum}`, {
         headers: {
-          'X-ACCESS-TOKEN': accessToken,
+          'X-ACCESS-TOKEN': getAccessToken(),
         },
       });
       return response.data;
