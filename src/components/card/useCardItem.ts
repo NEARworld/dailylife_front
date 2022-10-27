@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import likeApi from 'apis/likeApi';
 import parseComments from 'hooks/parseComment';
-import { updateReplyList } from 'reducers/comment';
+import { updateCommentList } from 'reducers/comment';
 import { selectedPostActions } from 'reducers/selectedPostData';
 import { useAppSelector } from 'store/hooks';
 
@@ -28,7 +28,7 @@ function useCardItem({
 
     fetchComments(currentPostData.boardNum)
       .then((updatedTimeList) => {
-        dispatch(updateReplyList(updatedTimeList));
+        dispatch(updateCommentList(updatedTimeList));
       })
       .catch((err) => err);
     dispatch(

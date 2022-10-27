@@ -10,10 +10,10 @@ export default function parseComments() {
     // ['1시간', '2시간', '1분']
     const updatedTimeList = res.data.map((item: Icomment) => ({
       ...item,
-      replyTime: getCommentDate(item.replyTime),
+      replyTime: getCommentDate(item.date),
     }));
     updatedTimeList.sort((a: Icomment, b: Icomment) => {
-      if (a.replyNum > b.replyNum) return 1;
+      if (a.id > b.id) return 1;
       return -1;
     });
     return updatedTimeList;

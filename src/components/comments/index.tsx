@@ -6,7 +6,7 @@ import CommentSection from './CommentSection';
 
 import ModalSocial from 'components/postModal/ModalSocial';
 import parseComments from 'hooks/parseComment';
-import { updateReplyList } from 'reducers/comment';
+import { updateCommentList } from 'reducers/comment';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import devices from 'styles/device';
 
@@ -18,22 +18,9 @@ function Comments({ modalOpacity }) {
   useEffect(() => {
     fetchComments(currentPostData.boardNum)
       .then((updatedTimeList) => {
-        dispatch(updateReplyList(updatedTimeList));
+        dispatch(updateCommentList(updatedTimeList));
       })
       .catch((err) => err);
-
-    // if (throttle) return;
-    // if (!throttle) {
-    //   setThrottle(true);
-    //   setTimeout(() => {
-    //     fetchComments(currentPostData.boardNum)
-    //       .then((updatedTimeList) => {
-    //         dispatch(updateReplyList(updatedTimeList));
-    //       })
-    //       .catch((err) => err);
-    //     setThrottle(false);
-    //   }, 10);
-    // }
   }, [modalOpacity, currentPostData.boardNum]);
 
   return (

@@ -2,14 +2,14 @@ import axios from 'axios';
 import { KeyboardEvent } from 'react';
 
 import { getAccessToken, getCommentDate } from 'common/utils';
-import { updateReplyList } from 'reducers/comment';
+import { updateCommentList } from 'reducers/comment';
 import { setLoading } from 'reducers/loading';
 import { ISelectedPostData } from 'reducers/selectedPostData';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 
 function useCommentUpload(selectedPostData: ISelectedPostData) {
   const dispatch = useAppDispatch();
-  const { replyList } = useAppSelector((state) => state.comment);
+  const { commentList } = useAppSelector((state) => state.comment);
 
   function addCommentProcess(e: KeyboardEvent<HTMLInputElement>) {
     const element = e.target as HTMLInputElement;
@@ -36,12 +36,12 @@ function useCommentUpload(selectedPostData: ISelectedPostData) {
               dispatch(setLoading(false));
               element.value = '';
               res.data.commentTime = getCommentDate(res.data.commentTime);
-              const tempList = [...replyList, res.data];
+              const tempList = [...commentList, res.data];
               tempList.sort((a, b) => {
                 if (a.replyNum > b.replyNum) return 1;
                 return -1;
               });
-              dispatch(updateReplyList(tempList));
+              dispatch(updateCommentList(tempList));
             })
             .catch((err) => console.log(err));
         }
@@ -79,11 +79,11 @@ function useCommentUpload(selectedPostData: ISelectedPostData) {
       //         },
       //       )
       //       .then((reReplyRes) => {
-      //         const newReplyList = [...replyList];
-      //         const idx = newReplyList.findIndex(
+      //         const newcommentList = [...commentList];
+      //         const idx = newcommentList.findIndex(
       //           (item) => item.replyNum === res.data.replyNum,
       //         );
-      //         newReplyList[idx].reReply = reReplyRes.data;
+      //         newcommentList[idx].reReply = reReplyRes.data;
       //         replyInput.current.value = '';
       //         sessionStorage.removeItem('replyInfo');
       //       })

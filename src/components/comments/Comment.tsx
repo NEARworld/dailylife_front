@@ -23,7 +23,7 @@ function Comment({
 }: Props) {
   return (
     <CommentContainer
-      onMouseOver={() => setReplyHover(item.replyNum)}
+      onMouseOver={() => setReplyHover(item.id)}
       onMouseOut={() => setReplyHover(-1)}
     >
       <CommentMain item={item} />
@@ -38,7 +38,6 @@ export default Comment;
 
 const CommentContainer = styled.div`
   display: grid;
-  grid-template-rows: 1fr 1fr;
   & > .comment-date-container {
     display: flex;
   }

@@ -6,7 +6,7 @@ import CommentIcon from 'components/Icons/CommentIcon';
 import { useAppSelector } from 'store/hooks';
 
 function ModalSocial() {
-  const replyList = useAppSelector((state) => state.comment.replyList);
+  const commentList = useAppSelector((state) => state.comment.commentList);
   return (
     <ModalSocialWrapper>
       <SocialIconsContainer>
@@ -15,7 +15,7 @@ function ModalSocial() {
       </SocialIconsContainer>
       <SocialCountContainer>
         <LikeCount>좋아요 {10}개</LikeCount>
-        <CommentCount>댓글 {replyList.length}개</CommentCount>
+        <CommentCount>댓글 {commentList.length}개</CommentCount>
       </SocialCountContainer>
     </ModalSocialWrapper>
   );
